@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+  background: #6c3cff;
+  color: #000;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.section-title {
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.container.card-book-detail {
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+  background: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.book-header {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+.book-img {
+  width: 260px;
+  height: 350px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #eee;
+  transition: transform 0.4s ease;
+}
+.book-img:hover {
+  transform: scale(1.04);
+}
+h2 {
+  color: #532bcc;
+  margin-top: 0;
+}
+.rating {
+  background: #532bcc;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 18px;
+  display: inline-block;
+  margin: 10px 0;
+  margin-bottom: 130px;
+  width: fit-content;
+}
+.right {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+table {
+  width: 100%;
+  margin-top: auto;
+  border-collapse: collapse;
+}
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+th {
+  background: #532bcc;
+  color: white;
+  text-align: left;
+  width: 150px;
+}
+.deskripsi {
+  margin-top: 25px;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.btn-kembali {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 8px 14px;
+  background: #532bcc;
+  color: white;
+  font-size: 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+  width: fit-content;
+}
+.btn-kembali:hover {
+  background: #3f23a1;
+}
+
+.comment-section {
+  margin-top: 25px;
+}
+
+.delete-komen {
+  margin-top: 10px;
+  background-color: lightgray;
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.komentar-box, .komentar {
+  background: #f6f4ff;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 12px;
+  border-left: 4px solid #532bcc;
+}
+.komentar-nama {
+  font-weight: bold;
+  color: #532bcc;
+}
+.komentar-teks {
+  margin-top: 5px;
+}
+.add-comment {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.add-comment input,
+.add-comment textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+.add-comment button {
+  width: 150px;
+  padding: 10px;
+  background: #532bcc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.add-comment button:hover {
+  background: #3f23a1;
+}

@@ -1,0 +1,259 @@
+/* ================================== */
+/* CSS KHUSUS MODAL & UPLOAD FOTO */
+/* ================================== */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2000; /* Above navbar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profile-upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#preview-pp {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: 5px solid #6c3cff;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.btn-upload {
+  border: 2px solid #6c3cff;
+  color: #6c3cff;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-upload:hover {
+    background-color: #f5f5ff;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.modal-content button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: #6c3cff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.modal-content button[type="submit"]:hover {
+    background: #532bcc;
+}
+
+/* ================================== */
+/* CSS KHUSUS RIWAYAT KOMENTAR */
+/* ================================== */
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: #6c3cff;
+    margin: 40px 0 30px;
+}
+
+.komentar-list {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.komentar-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 15px;
+    transition: 0.3s;
+}
+
+.komentar-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.book-info {
+    flex-shrink: 0;
+    width: 80px;
+    text-align: center;
+}
+
+.book-info img {
+    width: 80px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+.book-info a {
+    font-size: 13px;
+    color: #6c3cff;
+    text-decoration: none;
+    display: block;
+    max-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.komentar-content {
+    flex-grow: 1;
+}
+
+.komentar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.komentar-date {
+    font-size: 14px;
+    color: #777;
+}
+
+.komentar-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 15px;
+    background: #f5f5ff;
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 3px solid #6c3cff;
+}
+
+.action-link {
+    font-size: 14px;
+    color: #ff6b6b;
+    text-decoration: none;
+    transition: 0.2s;
+    font-weight: 500;
+}
+
+.action-link:hover {
+    color: #cc0000;
+}
+
+.no-data {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    padding: 50px;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+    .komentar-list {
+        width: 95%;
+    }
+
+    .komentar-card {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .book-info {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        text-align: left;
+    }
+
+    .book-info img {
+        width: 60px;
+        height: 90px;
+        margin-bottom: 0;
+    }
+
+    .book-info a {
+        white-space: normal;
+        max-height: none;
+        line-height: 1.4;
+    }
+
+    .komentar-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}

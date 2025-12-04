@@ -1,0 +1,654 @@
+/* =========================================
+   1. GLOBAL RESET & FONTS
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* =========================================
+   2. LOGIN PAGE STYLES (Scope: body.login-page)
+   ========================================= */
+body.login-page {
+  background: #532bcc;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-40px);
+}
+
+.login-card {
+  background: #ffffff;
+  width: 380px;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+.login-card h2 {
+  margin-bottom: 20px;
+  color: #532bcc;
+  font-size: 24px;
+}
+
+.login-card label {
+  display: block;
+  text-align: left;
+  margin-left: 5%;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #000;
+}
+
+.login-card input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #532bcc;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.login-card button {
+  width: 95%;
+  padding: 10px;
+  background: #532bcc;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login-card button:hover {
+  background: #3d1fa1;
+}
+
+/* =========================================
+   3. ADMIN DASHBOARD LAYOUT (Scope: body.dashboard-page)
+   ========================================= */
+body.dashboard-page {
+  background-color: #121212;
+  color: #ffffff;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* --- Sidebar Container --- */
+.sidebar {
+  width: 255px;
+  background: linear-gradient(180deg, #4f2ab5, #3d1e99);
+  display: flex;
+  flex-direction: column; /* Stacks items vertically */
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+
+.sidebar-header {
+  padding: 25px 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* --- NEW: Admin Profile Section --- */
+.admin-profile {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.1); /* Slightly darker background */
+}
+
+.admin-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.admin-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.admin-username {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Sidebar Menu --- */
+.sidebar-menu {
+  list-style: none;
+  padding: 10px 0;
+  flex-grow: 1; /* This pushes the Footer to the bottom */
+  overflow-y: auto;
+}
+
+.sidebar-menu li {
+  padding: 15px 22px;
+  cursor: pointer;
+  color: #ffffff;
+  position: relative;
+  font-size: 15px;
+  transition: all 0.25s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-menu li:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  padding-left: 28px;
+}
+
+.sidebar-menu li.active {
+  background-color: #ffffff;
+  color: #4f2ab5;
+  font-weight: 700;
+}
+
+.sidebar-menu li.active:hover {
+  background-color: #f8f8f8;
+}
+
+.sidebar-menu li a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- NEW: Sidebar Footer (Logout) --- */
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-logout {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(255, 80, 80, 0.2); /* Soft Red */
+  color: #ffcccc;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+  border: 1px solid rgba(255, 80, 80, 0.3);
+}
+
+.btn-logout:hover {
+  background-color: #ff4d4d;
+  color: white;
+  border-color: #ff4d4d;
+}
+
+.btn-disabled {
+  background-color: #cccccc !important;
+  color: #666666 !important;
+  cursor: not-allowed;
+  pointer-events: none; /* Mencegah klik */
+  border: 1px solid #999;
+}
+
+/* --- Main Content Area --- */
+.main-content {
+  flex-grow: 1;
+  background-color: #e0e0e0;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.content-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 100%;
+  border-top: 4px solid #4f2ab5;
+}
+
+/* Header inside content */
+.dashboard-page h1 {
+  margin-bottom: 20px;
+  color: #4f2ab5;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.header-actions {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The Circular Add Button (+) */
+.add-button {
+  width: 40px;
+  height: 40px;
+  background-color: #4f2ab5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.add-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.add-button::after {
+  content: "+";
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* =========================================
+   4. TABLES
+   ========================================= */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ccc;
+  color: black;
+  vertical-align: middle;
+}
+
+th {
+  background-color: #4f2ab5;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+/* Specific Column Utilities */
+.col-date {
+  white-space: nowrap;
+  min-width: 110px;
+}
+
+.col-content {
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* News Content Truncate (3 lines) */
+.news-content {
+  width: 300px;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Table Images */
+.centered img {
+  display: block;
+  margin: 0 auto;
+}
+
+.img-standard {
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.img-news {
+  width: 300px;
+  height: 150px;
+}
+
+.img-book {
+  width: 100px;
+  height: 150px;
+}
+
+.img-profile {
+  width: 100px;
+  aspect-ratio: 1/1;
+}
+
+/* =========================================
+   5. BUTTONS & ACTIONS
+   ========================================= */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: center; /* Align items to left */
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  text-align: center;
+  display: inline-block;
+  width: 84px;
+}
+
+/* New Class for Small Buttons (used in Peminjaman) */
+.btn-sm {
+  padding: 4px 10px;
+  font-size: 12px;
+  width: 100%;
+}
+
+.btn-primary,
+.btn-checkin,
+.btn-update,
+.btn-save {
+  background-color: #4f2ab5;
+  color: white;
+}
+
+.btn-secondary,
+.btn-checkout,
+.btn-delete,
+.btn-cancel {
+  background-color: #e0e0e0;
+  color: #4f2ab5;
+  text-decoration: none;
+}
+
+/* Hover States */
+.btn-primary:hover,
+.btn-checkin:hover,
+.btn-update:hover,
+.btn-save:hover {
+  background-color: #381f7d;
+}
+
+.btn-secondary:hover,
+.btn-checkout:hover,
+.btn-delete:hover,
+.btn-cancel:hover {
+  background-color: #d0d0d0;
+}
+
+/* Status Badges */
+.badge {
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.badge-success {
+  background-color: #c6f6d5;
+  color: #22543d;
+  border: 1px solid #9ae6b4;
+}
+
+.badge-danger {
+  background-color: #fed7d7;
+  color: #822727;
+  border: 1px solid #feb2b2;
+}
+
+.badge-info {
+  background-color: #bee3f8;
+  color: #2a4365;
+  border: 1px solid #90cdf4;
+}
+
+.badge-no {
+  background-color: #eee;
+  color: #555;
+  border: 1px solid #ccc;
+}
+
+/* =========================================
+   6. MODALS & FORMS
+   ========================================= */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 500px;
+  max-width: 90%;
+  padding: 20px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal button {
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+.modal-header {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4f2ab5;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.close-modal:hover {
+  color: #4f2ab5;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #4f2ab5;
+}
+
+.form-input,
+.form-textarea,
+.form-file {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-file {
+  background-color: #f9f9f9;
+}
+
+/* Modal Preview Image */
+.img-preview {
+  width: 120px;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background-color: #f9f9f9;
+  display: block;
+  margin-top: 5px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+
+/* Radio Group */
+.radio-group {
+  margin-bottom: 15px;
+  color: #121212;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.radio-option input[type="radio"] {
+  margin-right: 8px;
+  accent-color: #4f2ab5;
+}
+
+/* =========================================
+   7. RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+  .sidebar-header {
+    padding: 15px;
+    font-size: 16px;
+  }
+  .sidebar-menu li {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+
+  .content-container {
+    padding: 15px;
+  }
+
+  .modal {
+    width: 90%;
+    margin: 0 5%;
+  }
+
+  /* Responsive tweaks for admin profile */
+  .admin-name {
+    font-size: 13px;
+  }
+  .admin-username {
+    font-size: 11px;
+  }
+  .admin-img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 180px;
+  }
+  .sidebar-header {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  .sidebar-menu li {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+
+  .modal {
+    width: 95%;
+    margin: 0 2.5%;
+  }
+
+  /* Hide admin details on very small screens if needed */
+  .admin-info {
+    display: none;
+  }
+  .admin-img {
+    margin-right: 0;
+    margin: 0 auto;
+    display: block;
+  }
+  .admin-profile {
+    justify-content: center;
+  }
+}

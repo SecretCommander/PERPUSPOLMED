@@ -1,0 +1,1408 @@
+/* ==========================
+   GLOBAL STYLE
+========================== */
+* {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+#bukurekomen,
+#leaderboard,
+#leaderboardprodi,
+#testimoni,
+#mitra {
+  scroll-margin-top: 100px; /* Adjust as needed */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 50;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 15px auto;
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+nav {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+.logo span {
+  color: #6c3cff;
+}
+.logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.menu {
+  display: flex;
+  gap: 30px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+.menu a:hover {
+  color: #6c3cff;
+}
+
+.tombol {
+  display: flex;
+  gap: 20px;
+}
+
+.tombol a {
+  color: #6c3cff;
+  border: 2px solid #6c3cff;
+  border-radius: 10px;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.login-btn a:hover {
+  background-color: #6c3cff;
+  color: #fff;
+}
+
+.sign-up a {
+  background: #6c3cff;
+  color: #fff;
+  padding: 8px 12px;
+  border: 2px solid #fff;
+}
+.sign-up a:hover {
+  background: #532bcc;
+  border-color: #532bcc;
+}
+
+.fire {
+  color: #ff6b6b;
+  font-size: 24px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.nofire {
+  color: #ccc;
+  font-size: 24px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.loggedin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pp {
+  border: 1px solid #ccc;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+}
+
+/* ==========================
+   LAYOUT (KIRI + KANAN)
+========================== */
+.layout {
+  display: flex;
+  margin: 0 70px;
+  gap: 30px;
+}
+
+#kiri {
+  width: 25%;
+  background: #fff;
+  padding: 25px 30px 0 0;
+  border-right: 1px solid #333;
+}
+
+.kanan {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Tombol Menu */
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  background: #6d4eff;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* ===========================
+   TOGGLE BUTTON
+=========================== */
+.sidebar-toggle {
+  position: fixed;
+  top: 130px;
+  right: 20px;
+  background: #6c3cff;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+}
+
+.sidebar-toggle .icon {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Tooltip */
+.sidebar-toggle .tooltip {
+  position: absolute;
+  right: 65px;
+  background: black;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(10px);
+  transition: 0.2s;
+}
+
+.sidebar-toggle:hover .tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+.sidebar {
+  position: fixed;
+  top: 80px;
+  right: -350px;
+  width: 300px;
+  height: calc(100vh - 80px);
+  background: white;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+  border-radius: 20px 0 0 20px;
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 1500;
+  transition: 0.35s ease-in-out;
+}
+
+/* saat aktif */
+.sidebar.active {
+  right: 0;
+}
+
+/* ===========================
+   PROFILE
+=========================== */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.profile-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #000;
+}
+
+.profile-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ===========================
+   KARTU PERPUS
+=========================== */
+.card-perpus {
+  margin-top: 25px;
+}
+
+.perpus-btn {
+  display: block;
+  background: #f5f5f5;
+  padding: 15px 20px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4b29ff;
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+
+/* Hover ringan */
+.perpus-btn:hover {
+  background: #ece9ff;
+  border-color: #4b29ff;
+}
+
+.card-box {
+  margin-top: 10px;
+  background: #6c3cff;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+/* ===========================
+   LOGOUT BUTTON
+=========================== */
+.logout-btn {
+  width: 100%;
+  margin-top: 30px;
+  padding: 12px;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  background: #333;
+}
+
+/* ==========================
+   BERITA
+========================== */
+.berita,
+.berita1,
+.berita2 {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.berita1 img,
+.berita2 img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.berita1 a,
+.berita2 a,
+.beritakecil1 a,
+.beritakecil2 a {
+  color: #000;
+  text-decoration: none;
+}
+.berita a:hover,
+.berita1 a:hover,
+.berita2 a:hover {
+  color: #532bcc;
+}
+
+/* Grid kecil */
+.grid-news {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 6fr));
+  gap: 30px;
+}
+
+.beritakecil1,
+.beritakecil2 {
+  margin-right: -15px;
+  padding-right: 10px;
+}
+.beritakecil1 {
+  border-right: 1px solid #333;
+}
+
+.beritakecil1 img,
+.beritakecil2 img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  /* 1. Setup the scroll container */
+  .news-scroll-wrapper {
+    display: flex; /* Make items sit side-by-side */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 15px; /* Space between cards */
+    padding: 10px 5px 20px 5px; /* Padding for shadow visibility */
+    scroll-behavior: smooth;
+
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+
+  .news-scroll-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  /* 2. Turn news items into "Cards" */
+  .berita1 {
+    min-width: 260px; /* Fixed width so they don't shrink */
+    max-width: 260px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Card shadow */
+    margin-top: 10px; /* Adjust margin inside container */
+    flex-shrink: 0; /* Prevent squeezing */
+  }
+
+  /* 3. Adjust Image inside the card */
+  .berita1 img {
+    height: 150px; /* Fixed height for uniformity */
+    object-fit: cover; /* Crop image nicely */
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  /* 4. Adjust Text inside the card */
+  .berita1 h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    /* Limit title to 2 lines */
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .berita1 p {
+    font-size: 13px;
+    color: #666;
+    /* Limit text to 3 lines */
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Hide the <hr> inside cards on mobile to keep it clean */
+  .berita1 hr {
+    display: none;
+  }
+}
+
+/* ==========================
+   HERO SECTION
+========================== */
+#hero {
+  padding: 30px;
+  height: 500px;
+  margin: 170px 0 50px;
+  position: relative;
+}
+
+.headline {
+  color: #000;
+  font-size: 22px;
+  margin: 20px 0 20px 40px;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideIn 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.headline p {
+  font-size: 19px;
+}
+.headline span {
+  color: #6c3cff;
+}
+
+.hero img {
+  width: 60%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: -180px;
+  animation: float 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* float */
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(8px, -10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.cta-btn {
+  display: inline-block;
+  background: #6c3cff;
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+.cta-btn:hover {
+  background: #582ed6;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(108, 60, 255, 0.3);
+}
+
+/* ==========================
+   BUKU REKOMENDASI
+========================== */
+#bukurekomen {
+  background: #6c3cff;
+  padding: 30px 60px;
+  height: 500px;
+  border-radius: 30px;
+  margin-left: 20px;
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+#bukurekomen.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.h1buku {
+  position: relative;
+  z-index: 99;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Grid Books */
+.book-grid {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px 0;
+  padding-right: 150px; /* Space for fade effect */
+  scroll-behavior: smooth;
+  position: relative;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.book-grid::-webkit-scrollbar {
+  display: none;
+}
+
+#bukurekomen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(to left, #6c3cff 20%, transparent 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.book-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 210px;
+  max-width: 210px;
+  flex-shrink: 0;
+  position: relative;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.book-card.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+}
+
+.rating-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(40, 40, 40, 0.8);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.book-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.brand {
+  font-size: 14px;
+  margin-bottom: 2px;
+  color: gray;
+}
+
+.book-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+  max-height: 42px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.book-title a:-webkit-any-link {
+  color: #000 !important;
+  text-decoration: none !important;
+  
+}
+
+.book-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.action-icon {
+  font-size: 22px;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.action-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ==========================
+   LEADERBOARD
+========================== */
+#leaderboard {
+  margin-top: 30px;
+  padding: 80px 0;
+  text-align: center;
+}
+
+/* Efek awal sebelum terlihat */
+#leaderboard .leader-card {
+  transform: scale(0.8);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+/* Saat muncul di layar */
+#leaderboard.show .leader-card {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Biar muncul berurutan */
+#leaderboard.show .leader-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+#leaderboard.show .leader-card:nth-child(2) {
+  transition-delay: 0.25s;
+}
+#leaderboard.show .leader-card:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.leader-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #6c3cff;
+  margin-bottom: 50px;
+}
+
+.leaderboard-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.leader-card {
+  width: 230px;
+  padding: 30px 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  text-align: center;
+  transition: 0.25s;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+}
+
+.leader-card:hover {
+  transform: translateY(-10px) scale(1.04);
+}
+
+#leaderboard.show .leader-card.first {
+  transform: scale(1.08);
+}
+
+#leaderboard.show .leader-card.second {
+  transform: scale(1);
+}
+
+#leaderboard.show .leader-card.third {
+  transform: scale(0.95);
+}
+
+.rank-badge {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+  margin: 0 auto 10px;
+  font-weight: bold;
+}
+
+.gold {
+  background: linear-gradient(135deg, #ffd700, #ffb300);
+}
+.silver {
+  background: linear-gradient(135deg, #c0c0c0, #a8a8a8);
+}
+.bronze {
+  background: linear-gradient(135deg, #cd7f32, #b8661f);
+}
+
+.leader-photo {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 4px solid transparent;
+}
+
+.first .leader-photo {
+  border-color: #ffd700;
+}
+.second .leader-photo {
+  border-color: #c0c0c0;
+}
+.third .leader-photo {
+  border-color: #cd7f32;
+}
+
+.leader-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #4b1df2;
+  margin-bottom: 5px;
+}
+
+.leader-score {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.leader-streak {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ff4040;
+}
+
+/* ==========================
+   LEADERBOARD PRODI
+========================== */
+#leaderboardprodi {
+  background: #6c3cff;
+  width: 100%;
+  padding: 40px 10px;
+  border-radius: 20px;
+  color: white;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#leaderboardprodi h1 {
+  margin-bottom: 30px;
+}
+
+/* Efek awal: transparan & sedikit turun */
+#leaderboardprodi .row,
+#leaderboardprodi .header {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease;
+}
+
+/* Saat muncul */
+#leaderboardprodi.show .row,
+#leaderboardprodi.show .header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animasi muncul berurutan */
+#leaderboardprodi .row:nth-child(1) {
+  transition-delay: 0.05s;
+}
+#leaderboardprodi .row:nth-child(2) {
+  transition-delay: 0.1s;
+}
+#leaderboardprodi .row:nth-child(3) {
+  transition-delay: 0.15s;
+}
+#leaderboardprodi .row:nth-child(4) {
+  transition-delay: 0.2s;
+}
+#leaderboardprodi .row:nth-child(5) {
+  transition-delay: 0.25s;
+}
+#leaderboardprodi .row:nth-child(6) {
+  transition-delay: 0.3s;
+}
+#leaderboardprodi .row:nth-child(7) {
+  transition-delay: 0.35s;
+}
+#leaderboardprodi .row:nth-child(8) {
+  transition-delay: 0.4s;
+}
+#leaderboardprodi .row:nth-child(9) {
+  transition-delay: 0.45s;
+}
+#leaderboardprodi .row:nth-child(10) {
+  transition-delay: 0.5s;
+}
+#leaderboardprodi .row:nth-child(11) {
+  transition-delay: 0.55s;
+}
+
+.board {
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  color: #000;
+  border-radius: 16px;
+  padding: 20px 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.header,
+.row {
+  display: grid;
+  grid-template-columns: 80px 1fr 120px;
+  padding: 14px 30px;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+  align-items: center;
+}
+
+.header {
+  background: #eee;
+}
+.row:nth-child(even) {
+  background: #fafafa;
+}
+
+.rank {
+  font-size: 20px;
+  font-weight: bold;
+  color: #6c3cff;
+}
+
+/* ==========================
+   Testimoni Section
+========================== */
+#testimoni {
+  padding: 60px 0;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Animasi awal sebelum muncul */
+#testimoni .testimonial {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.7s ease;
+}
+
+/* Saat muncul */
+#testimoni.show .testimonial {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay animasi satu per satu */
+#testimoni.show .testimonial:nth-child(1) {
+  transition-delay: 0.1s;
+}
+#testimoni.show .testimonial:nth-child(2) {
+  transition-delay: 0.25s;
+}
+#testimoni.show .testimonial:nth-child(3) {
+  transition-delay: 0.4s;
+}
+#testimoni.show .testimonial:nth-child(4) {
+  transition-delay: 0.55s;
+}
+#testimoni.show .testimonial:nth-child(5) {
+  transition-delay: 0.7s;
+}
+
+.title-testimoni {
+  font-size: 32px;
+  font-weight: 700;
+  color: #6c3cff;
+  margin-bottom: 40px;
+}
+
+/* Wrapper */
+.testimonial-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 85%;
+  max-width: 900px;
+}
+
+/* Base structure for testimonial */
+.testimonial.small {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  position: relative;
+}
+
+/* Ganjil → foto kiri, cover kanan */
+.testimonial.small.odd {
+  flex-direction: row;
+}
+
+/* Genap → foto kanan, cover kiri */
+.testimonial.small.even {
+  flex-direction: row-reverse;
+}
+
+/* Bubble Chat Card */
+.testi-card-small {
+  background: #f5f3ff;
+  border-radius: 20px;
+  padding: 15px 20px;
+  flex: 1;
+  border: 1px solid #d5caff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.testi-card-small h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: #6c3cff;
+}
+
+.job-small {
+  font-size: 13px;
+  font-style: italic;
+  margin-bottom: 8px;
+  color: #777;
+}
+
+.text-small {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+/* Foto Profil Bulat */
+.testi-img-round {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+/* Sampul Buku */
+.book-cover-testi {
+  width: 80px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+  border: 1px solid #ccc;
+}
+
+/* Like Button Wrapper */
+.testi-actions {
+  display: flex;
+  margin-top: 10px;
+}
+
+/* Like Button */
+.like-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: white;
+  border: 2px solid #6c3cff;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6c3cff;
+}
+
+.like-btn:hover {
+  background: #6c3cff;
+  color: white;
+}
+
+.like-btn:hover .heart-icon {
+  transform: scale(1.2);
+}
+
+.heart-icon {
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.like-count {
+  font-size: 14px;
+}
+
+.like-btn.liked {
+  border-color: red;
+  background-color: #fff0f0;
+}
+
+/* ==== Like button position ==== */
+
+/* Ganjil (odd) → like di pojok kanan */
+.testimonial.small.odd .testi-card-small {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial.small.odd .testi-actions {
+  margin-left: auto;
+}
+
+/* Genap (even) → like di pojok kiri */
+.testimonial.small.even .testi-card-small {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial.small.even .testi-actions {
+  margin-right: auto;
+}
+
+.profilecover {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: auto 0;
+  row-gap: 10px;
+}
+
+/* Footer Styling */
+#footer {
+  background: #2f1970;
+  color: #fff;
+  padding: 60px 0 20px;
+  margin-top: 80px;
+  border-top: 8px solid #ffffff;
+}
+
+.footer-container {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Title */
+.footer-title h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer-title p {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+/* Members */
+.footer-members h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.footer-members ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-members ul li {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: 25px;
+  border-top: 1px solid #333;
+  margin-top: 30px;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .layout {
+    align-items: center;
+  }
+
+  .mitra-wrapper {
+    padding: 5px !important;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .tombol {
+    gap: 0;
+  }
+
+  .tombol a {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .kanan {
+    width: 95%;
+  }
+  #leaderboardprodi {
+    margin-left: 0;
+  }
+
+  #leaderboardprodi .center {
+    text-align: center;
+  }
+
+  .footer-members ul li {
+    font-size: 14px;
+  }
+}
+
+/* ==========================
+   RESPONSIVE IMPROVEMENTS
+========================== */
+/* ============================
+   FIX HERO RESPONSIVE
+============================ */
+@media (max-width: 768px) {
+  #hero {
+    height: auto;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .hero img {
+    position: static !important;
+    width: 80% !important;
+    margin: 20px auto 0 auto !important;
+    display: block;
+  }
+
+  .headline {
+    margin-left: 0 !important;
+  }
+}
+
+/* Section Mitra */
+
+#mitra {
+  background: #6c3cff;
+  padding: 80px 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+}
+
+/* Posisi awal */
+#mitra .mitra-left,
+#mitra .mitra-right {
+  opacity: 0;
+  transition: 0.8s ease;
+}
+
+/* Kiri masuk dari kiri */
+#mitra .mitra-left {
+  transform: translateX(-40px);
+}
+
+/* Kanan masuk dari kanan */
+#mitra .mitra-right {
+  transform: translateX(40px);
+}
+
+/* Saat section terlihat */
+#mitra.show .mitra-left,
+#mitra.show .mitra-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Tambahkan sedikit delay untuk efek lembut */
+#mitra.show .mitra-left {
+  transition-delay: 0.1s;
+}
+#mitra.show .mitra-right {
+  transition-delay: 0.25s;
+}
+
+/* Title */
+.mitra-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* Wrapper */
+.mitra-wrapper {
+  width: 85%;
+  background: #ffffff;
+  color: #000;
+  border-radius: 25px;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.logo-mitra {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+/* Text Bagian Kanan */
+.mitra-name {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.mitra-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.mitra-info p {
+  margin: 6px 0;
+  font-size: 17px;
+}
+
+.mitra-info strong {
+  color: #6c3cff;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .mitra-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-mitra {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* ============================
+   FIX SECTION BUKU REKOMENDASI RESPONSIVE
+============================ */
+@media (max-width: 768px) {
+  #bukurekomen {
+    height: auto !important; /* hilangkan tinggi fix */
+    padding: 30px 20px !important;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) !important;
+  }
+
+  .book-card {
+    width: 100% !important; /* biar mengikuti lebar grid */
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+
+/* ============================
+   FIX LAYOUT UTAMA (kiri + kanan)
+============================ */
+@media (max-width: 992px) {
+  .layout {
+    flex-direction: column !important;
+    margin: 0 20px !important;
+  }
+
+  #kiri {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid #333;
+    padding-right: 0 !important;
+  }
+}
+
+/* ============================
+   CARD & GRID FIX FOR SMALL PHONES
+============================ */
+@media (max-width: 480px) {
+  .book-card img {
+    height: 200px !important;
+  }
+
+  .book-title {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  #hero {
+    height: 230px !important;
+  }
+}
